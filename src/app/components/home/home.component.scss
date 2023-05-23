@@ -1,0 +1,158 @@
+.header {
+  @apply
+  tw-flex
+  tw-flex-row
+  tw-justify-between
+  tw-items-center
+  tw-rounded-4-px
+  tw-p-12-px
+  tw-m-24-px;
+  background: linear-gradient(146deg, #e1eeff 19.67%, #ffe4fb 127.56%);
+}
+
+.search-button {
+  @apply
+  tw-border 
+  tw-border-solid 
+  tw-border-dark-border
+  tw-rounded-4-px
+  tw-flex
+  tw-justify-center
+  tw-h-60-px
+  tw-w-200-px
+}
+.tw-flex tw-flex-row tw-m-24-px{
+  display: flex;
+  flex-direction: row;
+  margin: 24px;
+}
+.trending-subjects {
+  @apply
+  tw-bg-table-header-bg
+  tw-p-12-px
+  tw-rounded-4-px
+  tw-shadow-lg;
+  background: linear-gradient(146deg, #e1eeff 19.67%, #ffe4fb 127.56%);
+  flex: 0 0 auto; 
+  width: 250px; 
+  margin-right: 16px; 
+}
+.search-results{
+  flex: 1 1 auto;
+}
+/* Style the table header */
+.search-results th {
+  background-color:  #e1eeff;
+  padding: 12px;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style the table body */
+.search-results td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Apply alternate background color to table rows */
+.search-results tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Add hover effect on table rows */
+.search-results tr:hover {
+  background-color: #e1eeff;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+.page-info {
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+.page-link {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  margin: 0 5px;
+  text-decoration: none;
+  color: #333;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.page-link:hover {
+  background-color: #f5f5f5;
+}
+
+.page-link.active {
+  background-color: #333;
+  color: #fff;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.pagination button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #4a4a4a;
+  padding: 0;
+  margin: 0 8px;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination .prev-button,
+.pagination .next-button {
+  font-size: 24px;
+}
+.loader {
+  position: fixed;
+  top: 1;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px; /* Adjust the height as needed */
+  font-size: 14px; /* Adjust the font size as needed */
+  color: #333; /* Adjust the color as needed */
+
+  z-index: 9999; 
+}
+
+.pagination .page-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.pagination .page-number:hover {
+  background-color: #e1eeff;
+}
+.pagination .page-entries {
+  margin-left: 16px;
+  font-size: 14px;
+  color: #8a8a8a;
+}

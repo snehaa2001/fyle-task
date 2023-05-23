@@ -1,0 +1,11 @@
+<div *ngIf="allBooks.length > 0">
+  <front-end-internship-assignment-table-view
+  [booksList]="allBooks"
+  [subjectName]="subjectName"
+  >
+</front-end-internship-assignment-table-view>
+<div *ngIf="isLoading">Loading...</div>
+<button class="back-button" (click)="goBack()">
+  <mat-icon aria-label="Back Icon">arrow_back</mat-icon>
+ </button>
+</div>

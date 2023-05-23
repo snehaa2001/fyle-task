@@ -1,0 +1,62 @@
+<div class="header">
+  <div class="tw-text-24-px tw-font-600">Open Books Library</div>
+  <div class="search-button">
+    <mat-icon class="tw-mt-16-px" aria-label="Search Icon">search</mat-icon>
+    <input
+      [formControl]="bookSearch"
+      name="searchKey"
+      type="text"
+      placeholder="Search Books"
+      class="tw-border-0 tw-bg-inherit"
+    >
+    <button mat-icon-button class="clear-button" *ngIf="bookSearch.value" (click)="clearSearch()">
+      <mat-icon aria-label="Clear Icon">clear</mat-icon>
+    </button>
+  </div>
+</div>
+<div class="tw-flex tw-flex-row tw-m-24-px">
+  <section class="trending-subjects">
+    <div class="tw-font-600 tw-text-24-px">Trending Subjects</div>
+    <ul class="tw-list-none tw-pl-0">
+      <li class="tw-text-16-px tw-cursor-pointer tw-p-12-px" *ngFor="let subject of trendingSubjects" routerLink="/trending-subject/{{ subject.name }}">
+        {{ subject.name }}
+      </li>
+    </ul>
+   
+  </section>
+  
+  <section class="search-results" *ngIf="searchResults.length > 0">
+    <div class="tw-font-600 tw-text-24-px">Search Results</div>
+    <table class="tw-table tw-mt-16-px">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Published Year</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of searchResults">
+          <td>{{ result.title }}</td>
+          <td>{{ result.author_name?.join(', ') || 'N/A' }}</td>
+          <td>{{ result.first_publish_year || 'N/A' }}</td>
+       
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="searchLoading" class="loader">Loading Search Results...</div>
+    <div class="pagination">
+      <div class="page-entries">
+        Showing Page {{ currentPage }} of {{ totalPages }}
+      </div>
+      <button class="prev-button" [disabled]="currentPage === 1" (click)="goToPreviousPage()"> <mat-icon aria-label="Previous Page">keyboard_arrow_left</mat-icon></button>
+      <button class="page-number" *ngFor="let pageNumber of getPageNumbers()" [disabled]="pageNumber === currentPage" (click)="goToPage(pageNumber)">
+        {{ pageNumber }}
+      </button>
+      <button class="next-button" [disabled]="currentPage === totalPages" (click)="goToNextPage()"><mat-icon aria-label="Next Page">keyboard_arrow_right</mat-icon></button>
+    </div>
+
+  </section>
+</div>
